@@ -1,4 +1,4 @@
-package com.mobdev.challengemobdev.config;
+package com.mobdev.challengemobdev.config.template;
 
 import com.mobdev.challengemobdev.exception.NotFoundException;
 import lombok.SneakyThrows;
@@ -23,8 +23,7 @@ import static org.springframework.http.HttpStatus.Series.SERVER_ERROR;
 public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
 
     @Override
-    public boolean hasError(ClientHttpResponse httpResponse)
-            throws IOException {
+    public boolean hasError(ClientHttpResponse httpResponse) throws IOException {
         return (
                 httpResponse.getStatusCode().series() == CLIENT_ERROR
                         || httpResponse.getStatusCode().series() == SERVER_ERROR);
@@ -32,8 +31,7 @@ public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
 
     @SneakyThrows
     @Override
-    public void handleError(ClientHttpResponse httpResponse)
-            throws IOException {
+    public void handleError(ClientHttpResponse httpResponse) {
         if (httpResponse.getStatusCode().series() == HttpStatus.Series.SERVER_ERROR) {
             // handle SERVER_ERROR
         } else if (httpResponse.getStatusCode().series() == HttpStatus.Series.CLIENT_ERROR) {

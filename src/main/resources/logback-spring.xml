@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="logback-services.xml" />
+
+    <springProfile name="local">
+        <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+        <root level="DEBUG">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-ALL" />
+        </logger>
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-DEBUG" />
+        </logger>
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-INFO"/>
+        </logger>
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-ERROR"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="qa">
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-ALL" />
+        </logger>
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-DEBUG" />
+        </logger>
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-INFO"/>
+        </logger>
+        <logger name="com.mobdev" level="debug" additivity="false">
+            <appender-ref ref="FILE-ERROR"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <logger name="com.mobdev" level="info" additivity="false">
+            <appender-ref ref="FILE-ALL"/>
+        </logger>
+        <logger name="com.mobdev" level="info" additivity="false">
+            <appender-ref ref="FILE-ERROR"/>
+        </logger>
+    </springProfile>
+
+</configuration>

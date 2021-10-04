@@ -33,7 +33,7 @@ public class PointsAspect {
             obj = proceedingJoinPoint.proceed();
         } finally {
             final long endTime = clock.millis();
-            LOGGER.info("Method Name - " +proceedingJoinPoint.getSignature().getName() +";Elapsed " +
+            LOGGER.info("Method Name - " +proceedingJoinPoint.getSignature().getName() +"; Elapsed " +
                     "execution time: {}", endTime - start);
         }
         return obj;
