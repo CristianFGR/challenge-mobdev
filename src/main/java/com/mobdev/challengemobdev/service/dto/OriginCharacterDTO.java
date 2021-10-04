@@ -1,4 +1,4 @@
-package com.movdev.challengemobdev.service.dto;
+package com.mobdev.challengemobdev.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

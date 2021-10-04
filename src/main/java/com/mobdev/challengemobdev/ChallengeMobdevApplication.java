@@ -1,4 +1,4 @@
-package com.movdev.challengemobdev;
+package com.mobdev.challengemobdev;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

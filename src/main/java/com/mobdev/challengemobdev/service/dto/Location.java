@@ -1,4 +1,4 @@
-package com.movdev.challengemobdev.service.dto;
+package com.mobdev.challengemobdev.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -22,27 +23,27 @@ import java.io.Serializable;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CharacterResponseDTO implements Serializable {
+public class Location implements Serializable {
 
     @JsonProperty(value = "id")
-    private int idCharacter;
+    private int id;
 
     @JsonProperty(value = "name")
-    private String nameCharacter;
-
-    @JsonProperty(value = "status")
-    private String status;
-
-    @JsonProperty(value = "species")
-    private String species;
+    private String name;
 
     @JsonProperty(value = "type")
-    private String type;
+    private String airDate;
 
-    @JsonProperty(value = "episode_count")
-    private int episodeCount;
+    @JsonProperty(value = "dimension")
+    private String dimension;
 
-    @JsonProperty(value = "origin")
-    private OriginCharacterDTO originCharacterDTO;
+    @JsonProperty(value = "residents")
+    private List<String> residentList;
+
+    @JsonProperty(value = "url")
+    private String url;
+
+    @JsonProperty(value = "created")
+    private String created;
 
 }

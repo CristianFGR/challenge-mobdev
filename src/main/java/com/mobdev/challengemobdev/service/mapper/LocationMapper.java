@@ -1,7 +1,7 @@
-package com.movdev.challengemobdev.service.mapper;
+package com.mobdev.challengemobdev.service.mapper;
 
-import com.movdev.challengemobdev.service.dto.CharacterResponseDTO;
-import com.movdev.challengemobdev.service.dto.Location;
+import com.mobdev.challengemobdev.service.dto.Location;
+import com.mobdev.challengemobdev.service.dto.CharacterResponseDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
