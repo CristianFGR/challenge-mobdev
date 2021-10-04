@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- *
+ * Interface para mapear objeto
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1

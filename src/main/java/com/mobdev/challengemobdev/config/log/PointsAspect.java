@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.time.Clock;
 
 /**
- * Clase que maneja por aspectos la duraci&oacute;n de la ejecuci&oacute;n
+ * Clase para monitorear duracion de los servicios
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1

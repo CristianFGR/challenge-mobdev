@@ -8,7 +8,7 @@ import lombok.*;
 import java.io.Serializable;
 
 /**
- *
+ * Objeto para almacenar respuesta de la API
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1

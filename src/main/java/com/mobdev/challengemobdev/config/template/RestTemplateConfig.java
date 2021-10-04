@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import java.time.Duration;
 
 /**
- *
+ * Clase para configurar el resttemplate
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1

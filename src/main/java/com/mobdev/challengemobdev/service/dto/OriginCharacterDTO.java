@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *
+ * Objeto donde se mapea la respuesta del servicio
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1

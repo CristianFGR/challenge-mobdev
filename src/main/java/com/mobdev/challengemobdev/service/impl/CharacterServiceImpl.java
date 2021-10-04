@@ -9,9 +9,6 @@ import com.mobdev.challengemobdev.service.dto.CharacterResponseDTO;
 import com.mobdev.challengemobdev.service.dto.Location;
 import com.mobdev.challengemobdev.service.mapper.LocationMapper;
 import com.mobdev.challengemobdev.util.ValidateUtil;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +27,6 @@ import java.net.MalformedURLException;
 @Service
 public class CharacterServiceImpl implements CharacterService {
 
-    private static final int SIZE_DEFAULT = 0;
-
     private final CharacterMapper characterMapper;
     private final LocationMapper locationMapper;
     private final RestTemplate restTemplate;
@@ -47,11 +42,11 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     /**
-     *
-     * @param id
-     * @return
-     * @throws MalformedURLException
-     * @throws NotDataFoundException
+     * Metodo que busca al personaje por el identificador
+     * @param id identificador del personaje
+     * @return Objeto con las caracteristicas del personaje
+     * @throws MalformedURLException excepcion en caso de url no valida
+     * @throws NotDataFoundException excepcion en caso de data no encontrada
      */
     @Override
     public CharacterResponseDTO findByIdCharacter(Long id) throws MalformedURLException, NotDataFoundException {
@@ -61,29 +56,17 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     /**
-     *
-     * @param character
-     * @return
-     * @throws MalformedURLException
+     * Metodo que busca informacion del origen del personaje
+     * @param character personaje
+     * @return CharacterResponseDTO objeto al cual se le agrega informacion del origen
+     * @throws MalformedURLException excepcion en caso de url no valida
      */
     private CharacterResponseDTO addOriginCharacter(Character character) throws MalformedURLException {
         ValidateUtil.urlValidator(character.getOrigin().getUrl());
         ResponseEntity<Location> responseLocation = restTemplate.getForEntity(character.getOrigin().getUrl(), Location.class);
         CharacterResponseDTO characterResponseDTO = characterMapper.toDto(character);
         locationMapper.updateModel(responseLocation.getBody(), characterResponseDTO);
-        return setQuantityEpisode(character, characterResponseDTO);
-    }
-
-    /**
-     *
-     * @param character
-     * @param characterResponseDTO
-     * @return
-     */
-    private static CharacterResponseDTO setQuantityEpisode(Character character ,CharacterResponseDTO characterResponseDTO){
-        characterResponseDTO.setEpisodeCount(CollectionUtils.isNotEmpty(
-                character.getEpisodeList()) ? character.getEpisodeList().size() : SIZE_DEFAULT);
-        return characterResponseDTO;
+        return ValidateUtil.setQuantityEpisode(character, characterResponseDTO);
     }
 
 }

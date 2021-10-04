@@ -1,5 +1,6 @@
 package com.mobdev.challengemobdev.config.template;
 
+import com.mobdev.challengemobdev.exception.ClientErrorException;
 import com.mobdev.challengemobdev.exception.NotFoundException;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,7 @@ import static org.springframework.http.HttpStatus.Series.CLIENT_ERROR;
 import static org.springframework.http.HttpStatus.Series.SERVER_ERROR;
 
 /**
- *
+ * Clase para manejar las respuestas al usar el resttemplate
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1
@@ -33,12 +34,12 @@ public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
     @Override
     public void handleError(ClientHttpResponse httpResponse) {
         if (httpResponse.getStatusCode().series() == HttpStatus.Series.SERVER_ERROR) {
-            // handle SERVER_ERROR
+            throw new Exception(HttpStatus.SERVICE_UNAVAILABLE.toString());
         } else if (httpResponse.getStatusCode().series() == HttpStatus.Series.CLIENT_ERROR) {
-            // handle CLIENT_ERROR
-            if (httpResponse.getStatusCode() == HttpStatus.NOT_FOUND) {
-                throw new NotFoundException(HttpStatus.NOT_FOUND.toString());
-            }
+            throw new ClientErrorException(HttpStatus.NOT_FOUND.toString());
+        } if (httpResponse.getStatusCode() == HttpStatus.NOT_FOUND) {
+            throw new NotFoundException(HttpStatus.NOT_FOUND.toString());
         }
     }
+
 }

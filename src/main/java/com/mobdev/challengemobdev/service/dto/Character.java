@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- *
+ * Objeto que retorna la API externa
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1

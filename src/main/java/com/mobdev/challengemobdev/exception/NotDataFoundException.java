@@ -1,7 +1,7 @@
 package com.mobdev.challengemobdev.exception;
 
 /**
- *
+ * Excepcion persanalizada
  *
  * @author Cristian Gonzalez Rojas (cristian.gonzalez.rojas@gmail.com)
  * @version 0.0.1
@@ -9,15 +9,8 @@ package com.mobdev.challengemobdev.exception;
  */
 public class NotDataFoundException extends Exception {
 
-    public NotDataFoundException() {
-    }
-
     public NotDataFoundException(String message) {
         super(message);
-    }
-
-    public NotDataFoundException(Throwable cause) {
-        super(cause);
     }
 
     @Override
