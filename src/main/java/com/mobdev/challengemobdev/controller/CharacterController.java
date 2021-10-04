@@ -52,7 +52,7 @@ public class CharacterController {
             @ApiResponse(code = 503, message = "API de consumo no disponible", response = Object.class),
             @ApiResponse(code = 400, message = "Peticion mal realizada", response = Object.class),
             @ApiResponse(code = 404, message = "No se encontro personaje para mostror", response = Object.class),
-            @ApiResponse(code = 200, message = "Correo enviado satisfactoriamente", response = CharacterResponseDTO.class)
+            @ApiResponse(code = 200, message = "Consulta de personaje exitosa", response = CharacterResponseDTO.class)
     })
     @ElapsedTime
     @GetMapping(path = "/character/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
