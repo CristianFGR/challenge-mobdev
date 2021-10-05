@@ -61,7 +61,8 @@ public class CharacterServiceImpl implements CharacterService {
      * @return CharacterResponseDTO objeto al cual se le agrega informacion del origen
      * @throws MalformedURLException excepcion en caso de url no valida
      */
-    private CharacterResponseDTO addOriginCharacter(Character character) throws MalformedURLException {
+    private CharacterResponseDTO addOriginCharacter(Character character) throws MalformedURLException, NotDataFoundException {
+        ValidateUtil.validateObjectNull(character.getOrigin());
         ValidateUtil.urlValidator(character.getOrigin().getUrl());
         ResponseEntity<Location> responseLocation = restTemplate.getForEntity(character.getOrigin().getUrl(), Location.class);
         CharacterResponseDTO characterResponseDTO = characterMapper.toDto(character);
